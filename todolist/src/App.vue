@@ -1,49 +1,20 @@
 <template>
   <div id="app">
-    <Header />
-    <AddTodo v-on:add-todo="addTodo"/>
-    <Todos v-bind:todos='todos' v-on:del-todo="deleteTodo"/>
+    <div id='todoApp'>
+      <Header/>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
-import Todos from './components/Todos.vue';
 import Header from './components/Header.vue';
-import AddTodo from './components/AddTodo.vue';
 
-export default {
-  name: 'App',
+export default {  
+  name:"app",
   components: {
-    Header,
-    Todos,
-    AddTodo
-  },
-  
-  data() {
-    return{
-      todos: [
-        {
-          id: 1,
-          title: 'atividade 1',
-          completed: false
-        },
-        {
-          id: 2,
-          title: 'ativiade 2',
-          completed: false
-        }
-      ]
-    }
-  },
-
-  methods: {
-    deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id);
-    },
-    addTodo (newTodo) {
-      this.todos = [...this.todos, newTodo]
-    }
-  } 
+    Header
+  }
 }
 </script>
 
@@ -69,4 +40,38 @@ export default {
   .btn:hover {
     background: #666;
   }
+
+#app {
+  display: flex;
+  justify-content: center;
+  color: #2c3e50;
+  width: 100vw;
+  height: 100vh;
+}
+
+#todoApp {
+  border: 1px solid darkslategrey;
+  width: 50vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 800px) {
+  #todoApp {
+    width: 100vw;
+    border: none;
+  }
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #a3a3a3;
+}
+
+#nav a.router-link-exact-active {
+  color: #fff;
+}
 </style>
