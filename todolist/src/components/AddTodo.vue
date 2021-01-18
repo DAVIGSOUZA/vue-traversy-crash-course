@@ -40,6 +40,7 @@ export default {
 <style scoped>
     form {
         display: flex;
+        height: 40px;
     }
     input[type='text'] {
         padding: 5px;
