@@ -44,9 +44,9 @@ export default {
     }
     input[type='text'] {
         padding: 5px;
-        flex: 10; /*q isso*/
+        flex: 10;
     }
     input[type='submit'] {
-        flex: 2; /*q isso!*/
+        flex: 2;
     }
 </style>
